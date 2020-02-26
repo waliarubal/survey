@@ -6,8 +6,9 @@ import { Question } from '@models/question.model';
     templateUrl: './question.component.html'
 })
 export class QuestionComponent {
-    @Input() Question: Question;
 
+    @Input() Question: Question;
+    
     IsTitleEditorVisible: boolean;
     IsTextEditorVisible: boolean;
 

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
+import { SurveyService } from '@services/survey.service';
+
 import { AppComponent } from './app.component';
 import { QuestionsModule } from './questions/questions.module';
 import { UsersComponent } from './users/users.component';
@@ -20,7 +22,7 @@ import { ResultComponent } from './result/result.component';
     FormsModule,
     QuestionsModule
   ],
-  providers: [],
+  providers: [SurveyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
