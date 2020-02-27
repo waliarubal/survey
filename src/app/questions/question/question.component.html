@@ -4,10 +4,10 @@
             <i class="far fa-lightbulb"></i>
             <strong class="ml-2" *ngIf="!Question || !Question.Title">What is title of this question?</strong>
             <strong class="ml-2" *ngIf="Question && Question.Title">{{Question.Title}}</strong>
-            <button type="button" class="btn btn-outline-primary border-0 ml-2" (click)="IsTitleEditorVisible = true;">
+            <button type="button" class="btn btn-outline-success border-0 ml-2" (click)="IsTitleEditorVisible = true;">
                 <i class="fas fa-pen-alt"></i>
             </button>
-            <button type="button" class="btn btn-outline-danger border-0 ml-2">
+            <button type="button" class="btn btn-outline-danger border-0 ml-2" (click)="Remove();">
                 <i class="fas fa-trash-alt"></i>
             </button>
         </span>
@@ -20,7 +20,7 @@
             <input type="text" class="form-control" placeholder="What is title of this question?"
                 [(ngModel)]="Question.Title">
             <div class="input-group-append">
-                <button type="button" class="btn btn-primary" [disabled]="!Question || !Question.Title"
+                <button type="button" class="btn btn-success" [disabled]="!Question || !Question.Title"
                     (click)="IsTitleEditorVisible = false;">
                     <i class="fas fa-save"></i>
                 </button>
@@ -31,7 +31,7 @@
         <div *ngIf="!IsTextEditorVisible">
             <span class="card-text" *ngIf="!Question || !Question.Text">What would you like to ask from the user?</span>
             <span class="card-text" *ngIf="Question && Question.Text">{{Question.Text}}</span>
-            <button type="button" class="btn btn-outline-primary border-0 ml-2" (click)="IsTextEditorVisible = true;">
+            <button type="button" class="btn btn-outline-success border-0 ml-2" (click)="IsTextEditorVisible = true;">
                 <i class="fas fa-pen-alt"></i>
             </button>
         </div>
@@ -39,7 +39,7 @@
             <textarea class="form-control" placeholder="What would you like to ask from the user?"
                 [(ngModel)]="Question.Text"></textarea>
             <div class="input-group-append">
-                <button type="button" class="btn btn-primary" [disabled]="!Question || !Question.Text"
+                <button type="button" class="btn btn-success" [disabled]="!Question || !Question.Text"
                     (click)="IsTextEditorVisible = false;">
                     <i class="fas fa-save"></i>
                 </button>

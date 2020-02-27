@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Question } from '@models/question.model';
+import { SurveyService } from '@services/survey.service';
 
 @Component({
     selector: 'app-question',
@@ -12,7 +13,11 @@ export class QuestionComponent {
     IsTitleEditorVisible: boolean;
     IsTextEditorVisible: boolean;
 
-    constructor(){
-        this.Question = new Question();
+    constructor(private readonly _surveyService: SurveyService){
+        
+    }
+
+    Remove(): void{
+        this._surveyService.RemoveQuestion(this.Question);
     }
 }

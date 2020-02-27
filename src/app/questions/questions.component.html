@@ -1,22 +1,25 @@
-<div class="container">
-    <div class="row">
-        <h2>
-            Manage Questions
-        </h2>
-    </div>
-    <div class="row text-muted mb-2">
-        Below is the list of available default questions for the survey. Answers to the questions will be scaled from
-        one to seven with one being least satisfied and seven being the most satisfied. You can add new questions,
-        delete or edit existing
-        onse.
-    </div>
-    <div class="row mb-4">
-        <button type="button" class="btn btn-primary">
-            <i class="fas fa-plus"></i>
-            <span class="ml-2">Add New Question</span>
-        </button>
-    </div>
-    <div class="row mb-3" *ngFor="let question of Questions">
-        <app-question class="col" [Question]="question"></app-question>
-    </div>
+<div class="row">
+  <h2>
+    <i class="fas fa-question"></i>
+    <span class="ml-2">Questions</span>
+  </h2>
+</div>
+<div class="row text-muted mb-2">
+  Below is the list of available default questions for the survey. Answers to the questions will be scaled from
+  one to seven with one being least satisfied and seven being the most satisfied. You can add new questions,
+  delete or edit existing
+  onse.
+</div>
+<div class="row mb-4">
+  <button type="button" class="btn btn-success mr-2" (click)="AddQuestion();">
+    <i class="fas fa-plus"></i>
+    <span class="ml-2">Add New Question</span>
+  </button>
+  <button type="button" class="btn btn-primary mr-2" (click)="AddQuestion();">
+    <span class="mr-2">Next</span>
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+<div class="row mb-3" *ngFor="let question of Questions | async">
+  <app-question class="col" [Question]="question"></app-question>
 </div>
