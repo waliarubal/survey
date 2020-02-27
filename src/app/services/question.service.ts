@@ -16,6 +16,14 @@ export class QuestionService {
         return this._questions.asObservable();
     }
 
+    get Count(): number {
+        return this._questionsStore.length;
+    }
+
+    GetQuestions(): Question[] {
+        return this._questionsStore;
+    }
+
     private GetDefaultQuestions(): Question[] {
         let questions = [
             new Question('Territory', 'Are you clear about where we are now, where we are going and how we are going to get there?'),

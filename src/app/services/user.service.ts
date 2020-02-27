@@ -16,6 +16,10 @@ export class UserService {
         return this._users.asObservable();
     }
 
+    get Count(): number {
+        return this._userStore.length;
+    }
+
     AddUser(): void {
         let user = new User();
         this._userStore.push(user);

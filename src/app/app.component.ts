@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '@models/user.model';
 
 export enum Step {
   Questions,
@@ -18,5 +19,9 @@ export class AppComponent {
 
   constructor() {
     this.CurrentStep = Step.Questions;
+  }
+
+  FillSurvey(user: User): void {
+    debugger;
   }
 }

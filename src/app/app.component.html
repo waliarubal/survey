@@ -3,9 +3,9 @@
         <app-questions class="col" (NextClicked)="CurrentStep = Step.Users;"></app-questions>
     </div>
     <div class="row" *ngIf="CurrentStep === Step.Users">
-        <app-users class="col"></app-users>
+        <app-users class="col" (FillSurveyClicked)="CurrentStep = Step.Survey; survey.User = $event;"></app-users>
     </div>
-    <div class="row" *ngIf="CurrentStep === Step.Survey">
-        <app-survey></app-survey>
+    <div class="row" [hidden]="CurrentStep !== Step.Survey">
+        <app-survey #survey></app-survey>
     </div>
 </div>

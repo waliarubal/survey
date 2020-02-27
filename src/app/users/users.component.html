@@ -12,11 +12,11 @@
     <i class="fas fa-user-plus"></i>
     <span class="ml-2">Add New User</span>
   </button>
-  <button type="button" class="btn btn-primary mr-2">
+  <button type="button" class="btn btn-primary mr-2" [disabled]="!Count">
     <i class="fas fa-chart-pie"></i>
     <span class="ml-2">Visualize</span>
   </button>
 </div>
 <div class="row mb-3" *ngFor="let user of Users | async">
-  <app-user class="col" [User]="user"></app-user>
+  <app-user class="col" [User]="user" (FillSurveyClicked)="FillSurveyClicked.emit($event);"></app-user>
 </div>

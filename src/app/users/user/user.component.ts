@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '@services/user.service';
 import { User } from '@models/user.model';
 
@@ -7,13 +7,14 @@ import { User } from '@models/user.model';
     templateUrl: './user.component.html'
 })
 export class UserComponent {
-    
+
+    @Output() readonly FillSurveyClicked: EventEmitter<User>;
     @Input() User: User;
 
     IsNameEditorVisible: boolean;
 
     constructor(private readonly _userService: UserService) {
-        
+        this.FillSurveyClicked = new EventEmitter();
     }
 
     Remove(): void {

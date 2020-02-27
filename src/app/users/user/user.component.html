@@ -8,7 +8,7 @@
   <button type="button" class="btn btn-outline-danger border-0 ml-2" (click)="Remove();">
     <i class="fas fa-trash-alt"></i>
   </button>
-  <button type="button" class="btn btn-info border-0 ml-2" (click)="Remove();" [disabled]="!User.FullName">
+  <button type="button" class="btn btn-info border-0 ml-2" (click)="FillSurveyClicked.emit(User);" [disabled]="!User.FullName">
     <span class="mr-2">Fill the Survey</span>
     <i class="fas fa-tasks"></i>
   </button>

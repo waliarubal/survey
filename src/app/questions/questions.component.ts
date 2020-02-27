@@ -16,6 +16,10 @@ export class QuestionsComponent {
         return this._questionService.Questions;
     }
 
+    get Count(): number {
+        return this._questionService.Count;
+    }
+
     AddQuestion(): void {
         this._questionService.AddQuestion();
     }

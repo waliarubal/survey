@@ -1,6 +1,39 @@
 <div class="row">
   <h2>
-    <i class="ffas fa-tasks"></i>
+    <i class="fas fa-tasks"></i>
     <span class="ml-2">Survey</span>
   </h2>
+</div>
+<div class="row">
+  <span>
+    <i class="fas fa-user-tie"></i>
+    <strong class="ml-2">Welcome {{Survey.User.FullName}}! All the questions are mandatory.</strong>
+  </span>
+</div>
+<div class="row text-muted mb-4">
+  Answer below mentioned questions by selecting an option for each. Answers to the questions will be scaled from one to
+  seven with one being least satisfied and seven being the most satisfied.
+</div>
+<ng-container *ngIf="Survey">
+  <ng-container *ngFor="let response of Survey.Responses">
+    <div class="row mb-2">
+      <span class="text-info">
+        <i class="fas fa-check text-success" *ngIf="response.IsAnswered"></i>
+        <i class="far fa-lightbulb text-warning" *ngIf="!response.IsAnswered"></i>
+        <span class="ml-2">{{response.Question.Text}}</span>
+      </span>
+    </div>
+    <div class="row mb-3">
+      <div class="form-check form-check-inline" *ngFor="let answer of [1,2,3,4,5,6,7]; let i = index;">
+        <input [name]="response.Question.Title" class="form-check-input ml-2" [class.ml-4]="i === 0" type="radio" [value]="answer" [(ngModel)]="response.Answer">
+        <label class="form-check-label">{{answer}}</label>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+<div class="row mt-4 mb-4">
+  <button type="button" class="btn btn-success" [disabled]="!Survey.IsFilled" (click)="SubmitAnswers(); SubmitAnswersClicked.emit(Survey);">
+    <i class="fas fa-save"></i>
+    <span class="ml-2">Submit Answers</span>
+  </button>
 </div>
