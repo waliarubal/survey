@@ -6,6 +6,6 @@
         <app-users class="col" (FillSurveyClicked)="CurrentStep = Step.Survey; survey.User = $event;"></app-users>
     </div>
     <div class="row" [hidden]="CurrentStep !== Step.Survey">
-        <app-survey #survey></app-survey>
+        <app-survey #survey (SubmitAnswersClicked)="CurrentStep = Step.Users;"></app-survey>
     </div>
 </div>
