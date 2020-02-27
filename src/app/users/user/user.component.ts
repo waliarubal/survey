@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
+import { UserService } from '@services/user.service';
 import { User } from '@models/user.model';
 
 @Component({
@@ -12,11 +12,11 @@ export class UserComponent {
 
     IsNameEditorVisible: boolean;
 
-    constructor(private readonly _surveyService: SurveyService) {
+    constructor(private readonly _userService: UserService) {
         
     }
 
     Remove(): void {
-        this._surveyService.RemoveUser(this.User);
+        this._userService.RemoveUser(this.User);
     }
 }

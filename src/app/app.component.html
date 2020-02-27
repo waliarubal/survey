@@ -1,8 +1,11 @@
 <div class="container">
-    <div class="row">
-        <app-questions class="col"></app-questions>
+    <div class="row" *ngIf="CurrentStep === Step.Questions">
+        <app-questions class="col" (NextClicked)="CurrentStep = Step.Users;"></app-questions>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="CurrentStep === Step.Users">
         <app-users class="col"></app-users>
+    </div>
+    <div class="row" *ngIf="CurrentStep === Step.Survey">
+        <app-survey></app-survey>
     </div>
 </div>

@@ -1,29 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Question } from '@models/question.model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '@models/user.model';
+import { Question } from '@models/question.model';
 
 @Injectable()
-export class SurveyService {
+export class QuestionService {
     private _questions: BehaviorSubject<Question[]>;
     private _questionsStore: Question[];
-    private _userStore: User[];
-    private _users: BehaviorSubject<User[]>;
 
     constructor() {
         this._questionsStore = this.GetDefaultQuestions();
         this._questions = new BehaviorSubject(this._questionsStore);
-
-        this._userStore = [];
-        this._users = new BehaviorSubject(this._userStore);
     }
 
     get Questions(): Observable<Question[]> {
         return this._questions.asObservable();
-    }
-
-    get Users(): Observable<User[]> {
-        return this._users.asObservable();
     }
 
     private GetDefaultQuestions(): Question[] {
@@ -63,18 +53,4 @@ export class SurveyService {
         this._questions.next(this._questionsStore);
     }
 
-    AddUser(): void {
-        let user = new User();
-        this._userStore.push(user);
-        this._users.next(this._userStore);
-    }
-
-    RemoveUser(user: User): void {
-        let index = this._userStore.indexOf(user);
-        if (index < 0)
-            return;
-
-        this._userStore.splice(index, 1);
-        this._users.next(this._userStore);
-    }
 }

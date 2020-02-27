@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { QuestionService } from '@services/question.service';
 
 @Component({
     selector: 'app-questions',
     templateUrl: './questions.component.html'
 })
 export class QuestionsComponent {
+    @Output() readonly NextClicked: EventEmitter<void>;
 
-    constructor(private readonly _surveyService: SurveyService) { }
+    constructor(private readonly _questionService: QuestionService) {
+        this.NextClicked = new EventEmitter();
+     }
 
     get Questions() {
-        return this._surveyService.Questions;
+        return this._questionService.Questions;
     }
 
     AddQuestion(): void {
-        this._surveyService.AddQuestion();
+        this._questionService.AddQuestion();
     }
 
     ScrollTo(element: HTMLElement): void {

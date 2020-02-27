@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SurveyService } from '@services/survey.service';
+import { UserService } from '@services/user.service';
 
 @Component({
     selector: 'app-users',
@@ -7,13 +7,13 @@ import { SurveyService } from '@services/survey.service';
 })
 export class UsersComponent {
 
-    constructor(private readonly _surveyService: SurveyService) { }
+    constructor(private readonly _userService: UserService) { }
 
     get Users() {
-        return this._surveyService.Users;
+        return this._userService.Users;
     }
 
     AddUser(): void {
-        this._surveyService.AddUser();
+        this._userService.AddUser();
     }
 }
