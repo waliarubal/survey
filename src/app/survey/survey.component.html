@@ -7,7 +7,7 @@
 <div class="row">
   <span>
     <i class="fas fa-user-tie"></i>
-    <strong class="ml-2">Welcome {{Survey.User.FullName}}! All the questions are mandatory.</strong>
+    <strong class="ml-2">Welcome {{Survey && Survey.User ? Survey.User.FullName : ''}}! All the questions are mandatory.</strong>
   </span>
 </div>
 <div class="row text-muted mb-4">
@@ -32,7 +32,7 @@
   </ng-container>
 </ng-container>
 <div class="row mt-4 mb-4">
-  <button type="button" class="btn btn-success" [disabled]="!Survey.IsFilled" (click)="SubmitAnswers();">
+  <button type="button" class="btn btn-success" [disabled]="Survey && !Survey.IsFilled" (click)="SubmitAnswers();">
     <i class="fas fa-save"></i>
     <span class="ml-2">Submit Answers</span>
   </button>

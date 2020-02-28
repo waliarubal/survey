@@ -17,10 +17,12 @@
     <span class="ml-2">Visualize</span>
   </button>
 </div>
-<div class="row mb-3" *ngFor="let user of Users | async">
-  <app-user class="col" [User]="user"></app-user>
-  <button type="button" class="btn btn-info border-0 col-2" (click)="FillSurveyClicked.emit(user);" [disabled]="!user.FullName">
-    <span class="mr-2">Fill the Survey</span>
+<div class="row mb-3" *ngFor="let survey of Surveys | async">
+  <app-user class="col" [User]="survey.User"></app-user>
+  <button type="button" class="btn btn-info border-0 col-2" [disabled]="!survey.User.FullName"
+    (click)="FillSurveyClicked.emit(survey);">
+    <span class="mr-2" *ngIf="!survey.IsFilled">Fill the Survey</span>
+    <span class="mr-2" *ngIf="survey.IsFilled">Survey Answered</span>
     <i class="fas fa-tasks"></i>
   </button>
 </div>

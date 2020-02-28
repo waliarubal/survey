@@ -3,7 +3,7 @@
         <app-questions class="col" (NextClicked)="CurrentStep = Step.Users;"></app-questions>
     </div>
     <div class="row" *ngIf="CurrentStep === Step.Users">
-        <app-users class="col" (FillSurveyClicked)="CurrentStep = Step.Survey; survey.User = $event;"></app-users>
+        <app-users class="col" (FillSurveyClicked)="CurrentStep = Step.Survey; survey.Survey = $event;"></app-users>
     </div>
     <div class="row" [hidden]="CurrentStep !== Step.Survey">
         <app-survey #survey (SubmitAnswersClicked)="CurrentStep = Step.Users;"></app-survey>

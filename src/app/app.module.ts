@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'
 
 import { QuestionService } from '@services/question.service';
 import { UserService } from '@services/user.service';
+import { SurveyService } from '@services/survey.service';
 
 import { AppComponent } from './app.component';
 import { QuestionsModule } from './questions/questions.module';
@@ -25,7 +26,8 @@ import { ResultComponent } from './result/result.component';
   ],
   providers: [
     QuestionService,
-    UserService
+    UserService,
+    SurveyService
   ],
   bootstrap: [AppComponent]
 })
