@@ -18,5 +18,9 @@
   </button>
 </div>
 <div class="row mb-3" *ngFor="let user of Users | async">
-  <app-user class="col" [User]="user" (FillSurveyClicked)="FillSurveyClicked.emit($event);"></app-user>
+  <app-user class="col" [User]="user"></app-user>
+  <button type="button" class="btn btn-info border-0 col-2" (click)="FillSurveyClicked.emit(user);" [disabled]="!user.FullName">
+    <span class="mr-2">Fill the Survey</span>
+    <i class="fas fa-tasks"></i>
+  </button>
 </div>

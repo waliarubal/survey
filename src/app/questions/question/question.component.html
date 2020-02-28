@@ -2,7 +2,7 @@
     <div class="card-header">
         <span *ngIf="!IsTitleEditorVisible">
             <i class="far fa-lightbulb"></i>
-            <strong class="ml-2" *ngIf="!Question || !Question.Title">What is title of this question?</strong>
+            <strong class="ml-2 text-warning" *ngIf="!Question || !Question.Title">What is title of this question?</strong>
             <strong class="ml-2" *ngIf="Question && Question.Title">{{Question.Title}}</strong>
             <button type="button" class="btn btn-outline-success border-0 ml-2" (click)="IsTitleEditorVisible = true;">
                 <i class="fas fa-pen-alt"></i>
@@ -29,7 +29,7 @@
     </div>
     <div class="card-body">
         <div *ngIf="!IsTextEditorVisible">
-            <span class="card-text" *ngIf="!Question || !Question.Text">What would you like to ask from the user?</span>
+            <span class="card-text text-warning" *ngIf="!Question || !Question.Text">What would you like to ask from the user?</span>
             <span class="card-text" *ngIf="Question && Question.Text">{{Question.Text}}</span>
             <button type="button" class="btn btn-outline-success border-0 ml-2" (click)="IsTextEditorVisible = true;">
                 <i class="fas fa-pen-alt"></i>

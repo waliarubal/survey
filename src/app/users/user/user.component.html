@@ -1,16 +1,12 @@
 <span *ngIf="!IsNameEditorVisible">
   <i class="fas fa-user-tie"></i>
-  <strong class="ml-2" *ngIf="!User.FullName">What is name of this user?</strong>
+  <strong class="ml-2 text-warning" *ngIf="!User.FullName">What is name of this user?</strong>
   <strong class="ml-2" *ngIf="User.FullName">{{User.FullName}}</strong>
   <button type="button" class="btn btn-outline-success border-0 ml-2" (click)="IsNameEditorVisible = true;">
     <i class="fas fa-pen-alt"></i>
   </button>
   <button type="button" class="btn btn-outline-danger border-0 ml-2" (click)="Remove();">
     <i class="fas fa-trash-alt"></i>
-  </button>
-  <button type="button" class="btn btn-info border-0 ml-2" (click)="FillSurveyClicked.emit(User);" [disabled]="!User.FullName">
-    <span class="mr-2">Fill the Survey</span>
-    <i class="fas fa-tasks"></i>
   </button>
 </span>
 <span class="input-group" *ngIf="IsNameEditorVisible">

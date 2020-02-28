@@ -20,8 +20,4 @@ export class AppComponent {
   constructor() {
     this.CurrentStep = Step.Questions;
   }
-
-  FillSurvey(user: User): void {
-    debugger;
-  }
 }

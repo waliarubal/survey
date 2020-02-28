@@ -28,5 +28,6 @@ export class SurveyComponent {
 
     SubmitAnswers(): void{
         this._surveyService.SetSurvey(this.Survey);
+        this.SubmitAnswersClicked.emit(this.Survey);
     }
 }

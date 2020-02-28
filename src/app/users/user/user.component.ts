@@ -8,13 +8,12 @@ import { User } from '@models/user.model';
 })
 export class UserComponent {
 
-    @Output() readonly FillSurveyClicked: EventEmitter<User>;
     @Input() User: User;
 
     IsNameEditorVisible: boolean;
 
     constructor(private readonly _userService: UserService) {
-        this.FillSurveyClicked = new EventEmitter();
+        
     }
 
     Remove(): void {

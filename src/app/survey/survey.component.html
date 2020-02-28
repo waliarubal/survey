@@ -32,7 +32,7 @@
   </ng-container>
 </ng-container>
 <div class="row mt-4 mb-4">
-  <button type="button" class="btn btn-success" [disabled]="!Survey.IsFilled" (click)="SubmitAnswers(); SubmitAnswersClicked.emit(Survey);">
+  <button type="button" class="btn btn-success" [disabled]="!Survey.IsFilled" (click)="SubmitAnswers();">
     <i class="fas fa-save"></i>
     <span class="ml-2">Submit Answers</span>
   </button>
