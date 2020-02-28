@@ -23,6 +23,7 @@
     (click)="FillSurveyClicked.emit(survey);">
     <span class="mr-2" *ngIf="!survey.IsFilled">Fill the Survey</span>
     <span class="mr-2" *ngIf="survey.IsFilled">Survey Answered</span>
-    <i class="fas fa-tasks"></i>
+    <i class="fas fa-tasks" *ngIf="!survey.IsFilled"></i>
+    <i class="fas fa-check" *ngIf="survey.IsFilled"></i>
   </button>
 </div>
