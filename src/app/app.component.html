@@ -1,11 +1,15 @@
 <div class="container">
-    <div class="row" *ngIf="CurrentStep === Step.Questions">
-        <app-questions class="col" (NextClicked)="CurrentStep = Step.Users;"></app-questions>
-    </div>
-    <div class="row" *ngIf="CurrentStep === Step.Users">
-        <app-users class="col" (FillSurveyClicked)="CurrentStep = Step.Survey; survey.Survey = $event;"></app-users>
-    </div>
-    <div class="row" [hidden]="CurrentStep !== Step.Survey">
-        <app-survey #survey (SubmitAnswersClicked)="CurrentStep = Step.Users;"></app-survey>
-    </div>
+  <div class="row" *ngIf="CurrentStep === Step.Questions">
+    <app-questions class="col" (NextClicked)="CurrentStep = Step.Users;"></app-questions>
+  </div>
+  <div class="row" *ngIf="CurrentStep === Step.Users">
+    <app-users class="col" (FillSurveyClicked)="CurrentStep = Step.Survey; survey.Survey = $event;"
+      (VisualizeClicked)="CurrentStep = Step.Result;"></app-users>
+  </div>
+  <div class="row" [hidden]="CurrentStep !== Step.Survey">
+    <app-survey #survey (SubmitAnswersClicked)="CurrentStep = Step.Users;"></app-survey>
+  </div>
+  <div class="row" *ngIf="CurrentStep === Step.Result">
+    <app-result class="col"></app-result>
+  </div>
 </div>

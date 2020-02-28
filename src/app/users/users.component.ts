@@ -8,9 +8,11 @@ import { Survey } from '@models/survey.model';
 })
 export class UsersComponent {
     @Output() readonly FillSurveyClicked: EventEmitter<Survey>;
+    @Output() readonly VisualizeClicked: EventEmitter<void>;
 
     constructor(private readonly _surveyService: SurveyService) {
         this.FillSurveyClicked = new EventEmitter();
+        this.VisualizeClicked = new EventEmitter();
     }
 
     get Surveys() {
